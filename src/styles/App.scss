@@ -1,0 +1,118 @@
+@use 'variables' as variable;
+@use 'mixins' as mixin;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: variable.$background-main-color;
+    padding: 0 1rem;
+}
+.form{
+    margin: 2rem auto;
+    background-color: variable.$contrast-main-color;
+    padding: 2rem;
+    border-radius: 2rem;
+    max-width: 400px;
+    &-input{
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        border: none;
+        width: 100%;
+    }
+}
+
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 2rem;
+    border-bottom: solid 2px white;
+    margin-bottom: 2rem;
+}
+
+.btn{
+    background-color: variable.$background-main-color;
+    color: white;
+    text-transform: white;
+    transition: .4s;
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    &:hover{
+      background-color: variable.$background-main-color-hover;  
+    }
+}
+
+.card{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    &-img{
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        margin: 0 auto 1rem auto;
+    }
+    &-item{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    &-item-label{
+        @include mixin.text;
+        color: variable.$background-main-color;
+    }
+    &-item-info{
+        @include mixin.text;
+    }
+    &-title{
+        @include mixin.text;
+        text-align: center;
+        margin: 0 0 1.5rem;
+        text-transform: capitalize;
+    }
+    &-desc{
+        @include mixin.text;
+        text-align: center;
+        padding: 0 0 2rem 0 ;
+        margin-bottom: 2rem;
+        border-bottom: 2px solid white;
+        text-transform: capitalize;
+    }
+}
+
+.text{
+    @include mixin.text;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+
+.card-wrapper{
+    display: flex;
+    justify-content: space-around;
+}
+
+@media screen and (max-width: 420px){
+    .card-wrapper{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .card-item{
+        border-bottom: dashed 2px white;
+        padding: 0 0 1rem 0;
+    }
+    .wrapper{
+        flex-direction: column;
+    }
+    .form-input{
+        width: auto;
+    }
+}
